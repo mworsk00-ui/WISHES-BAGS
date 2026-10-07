@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WISHES BAGS · Quality Bags for Every Style</title>
+  <!-- Google Fonts for clean typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons (optional but useful) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ----- GLOBAL RESET & VARIABLES ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      /* WISHES BAGS brand color – warm leather brown */
+      --brand: #a66b4f;
+      --brand-light: #c48a6e;
+      --brand-dark: #7b4d37;
+      --brand-soft: #f9f1ed;
+
+      /* M Center official palette (Google style, black instead of red) */
+      --m-blue: #1a73e8;
+      --m-blue-hover: #1557b0;
+      --m-black: #000000;
+      --m-yellow: #FBBC05;
+      --m-green: #34A853;
+
+      --text-dark: #1e1e1e;
+      --text-muted: #5f5f5f;
+      --bg-white: #ffffff;
+      --bg-off: #faf9f8;
+      --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+      --shadow-md: 0 12px 28px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.03);
+      --radius-md: 16px;
+      --radius-sm: 10px;
+      --radius-pill: 40px;
+      --transition: all 0.2s ease;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-white);
+      color: var(--text-dark);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ----- UTILITY ----- */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section {
+      padding: 72px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-header h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+
+    .section-header p {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 14px 28px;
+      border-radius: var(--radius-pill);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: var(--transition);
+      background-color: transparent;
+      line-height: 1.2;
+    }
+
+    .btn-primary {
+      background-color: var(--brand);
+      color: white;
+      box-shadow: 0 4px 14px rgba(166, 107, 79, 0.25);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--brand-dark);
+      box-shadow: 0 6px 20px rgba(166, 107, 79, 0.35);
+    }
+
+    .btn-outline {
+      border: 1.5px solid var(--brand);
+      color: var(--brand);
+      background-color: transparent;
+    }
+
+    .btn-outline:hover {
+      background-color: var(--brand-soft);
+    }
+
+    .btn-whatsapp {
+      background-color: #25D366;
+      color: white;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+    }
+
+    .btn-whatsapp:hover {
+      background-color: #1ebd5a;
+    }
+
+    /* ----- HEADER / NAVIGATION ----- */
+    .navbar {
+      background-color: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--brand);
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--text-dark);
+      font-weight: 400;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--brand);
+    }
+
+    .nav-cta .btn {
+      padding: 10px 22px;
+      font-size: 0.9rem;
+    }
+
+    /* mobile nav */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--text-dark);
+    }
+
+    /* ----- HERO ----- */
+    .hero {
+      padding: 64px 0 80px;
+      background: linear-gradient(135deg, #fdf8f5 0%, #ffffff 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-content h1 {
+      font-size: 3.25rem;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .hero-content h1 .accent {
+      color: var(--brand);
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      max-width: 90%;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-image {
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      background-color: var(--brand-soft);
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ----- ABOUT ----- */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .about-text h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 20px;
+    }
+
+    .about-highlight {
+      background-color: var(--brand-soft);
+      padding: 20px 24px;
+      border-radius: var(--radius-sm);
+      border-left: 4px solid var(--brand);
+      font-weight: 500;
+    }
+
+    .about-image {
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      background-color: #f0e7e2;
+      aspect-ratio: 4/3;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ----- PRODUCTS ----- */
+    .products {
+      background-color: var(--bg-off);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 28px;
+    }
+
+    .product-card {
+      background-color: white;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .product-img {
+      aspect-ratio: 1/1;
+      background-color: #f3ede9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .product-info {
+      padding: 18px 18px 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-info h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .product-category {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--brand);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .product-price {
+      font-weight: 500;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+
+    .product-card .btn {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 0.9rem;
+    }
+
+    /* demo label */
+    .demo-badge {
+      display: inline-block;
+      background: #f2e9e4;
+      color: #7b5b4a;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-left: 8px;
+      vertical-align: middle;
+      letter-spacing: 0.02em;
+    }
+
+    /* ----- CONTACT / ORDER ----- */
+    .contact-section {
+      background: linear-gradient(145deg, #ffffff 0%, #fcf9f7 100%);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      background: white;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      padding: 48px;
+    }
+
+    .contact-info h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .contact-detail i {
+      color: var(--brand);
+      font-size: 1.4rem;
+      width: 24px;
+      text-align: center;
+      margin-top: 2px;
+    }
+
+    .contact-detail span {
+      font-size: 1.05rem;
+      color: var(--text-dark);
+      word-break: break-word;
+    }
+
+    .contact-detail a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-detail a:hover {
+      color: var(--brand);
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .contact-actions .btn {
+      width: 100%;
+    }
+
+    .contact-map-note {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 20px;
+      font-style: italic;
+      border-top: 1px solid #eee;
+      padding-top: 20px;
+    }
+
+    /* ----- FOOTER with M Center ----- */
+    .footer {
+      background-color: #ffffff;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 40px 0 32px;
+      text-align: center;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .footer-brand {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--brand);
+    }
+
+    .footer-brand span {
+      color: var(--text-dark);
+      font-weight: 400;
+    }
+
+    .m-center-credit {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 6px 10px;
+      background-color: var(--m-black);
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+
+    .m-center-credit .m-blue { color: var(--m-blue); }
+    .m-center-credit .m-yellow { color: var(--m-yellow); }
+    .m-center-credit .m-green { color: var(--m-green); }
+    .m-center-credit .m-white { color: #ffffff; }
+
+    .m-center-credit a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px dotted rgba(255,255,255,0.5);
+      transition: var(--transition);
+    }
+
+    .m-center-credit a:hover {
+      border-bottom-color: var(--m-yellow);
+      color: var(--m-yellow);
+    }
+
+    .footer-copy {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* ----- RESPONSIVE ----- */
+    @media (max-width: 900px) {
+      .hero-grid, .about-content, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-image {
+        order: -1;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .about-image {
+        order: -1;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .contact-grid {
+        padding: 32px 24px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 24px;
+        gap: 20px;
+        border-bottom: 1px solid #eee;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+
+      .section {
+        padding: 56px 0;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      .product-info h4 {
+        font-size: 1rem;
+      }
+
+      .btn {
+        padding: 12px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .m-center-credit {
+        font-size: 0.85rem;
+        padding: 10px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">WISHES <span>BAGS</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="#products" class="btn btn-outline">Shop Bags</a>
+      </div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1>Quality Bags<br><span class="accent">for Every Style</span></h1>
+          <p>Handcrafted bags from Mara, Tanzania — designed for everyday life, work, and travel.</p>
+          <div class="hero-actions">
+            <a href="#products" class="btn btn-primary">Shop Our Bags <i class="fas fa-arrow-right"></i></a>
+            <a href="https://wa.me/255762762668" target="_blank" class="btn btn-outline"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <!-- Online image related to bags: stylish leather bag -->
+          <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=800&auto=format&fit=crop" alt="Stylish handbag collection">
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ABOUT ========== -->
+    <section class="section" id="about">
+      <div class="container about-content">
+        <div class="about-text">
+          <h3>About WISHES BAGS</h3>
+          <p>WISHES BAGS is a Tanzanian bag business based in Mara, providing quality bags for different customer needs and occasions.</p>
+          <p>We combine durable materials with thoughtful design to create bags that serve you every day — whether you're a student, professional, or traveller.</p>
+          <div class="about-highlight">
+            <i class="fas fa-map-pin" style="color: var(--brand); margin-right: 8px;"></i> Proudly based in Mara, Tanzania.
+          </div>
+        </div>
+        <div class="about-image">
+          <!-- Online image: artisan making bag / workshop -->
+          <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800&auto=format&fit=crop" alt="Craftsmanship of bags">
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PRODUCTS ========== -->
+    <section class="section products" id="products">
+      <div class="container">
+        <div class="section-header">
+          <h2>Featured Collection <span class="demo-badge">demo content</span></h2>
+          <p>Explore our range — each piece can be customized. Contact us for prices and availability.</p>
+        </div>
+
+        <div class="product-grid">
+          <!-- Card 1: Handbag -->
+          <div class="product-card">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=400&auto=format&fit=crop" alt="Ladies Handbag">
+            </div>
+            <div class="product-info">
+              <h4>Ladies Handbag</h4>
+              <div class="product-category">Handbags</div>
+              <div class="product-price">TZS — Contact for price</div>
+              <a href="https://wa.me/255762762668?text=Hello%20WISHES%20BAGS%2C%20I%20am%20interested%20in%20the%20Ladies%20Handbag.%20Please%20send%20me%20the%20price%20and%20availability." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Order Now</a>
+            </div>
+          </div>
+
+          <!-- Card 2: School Bag -->
+          <div class="product-card">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&auto=format&fit=crop" alt="School Bag">
+            </div>
+            <div class="product-info">
+              <h4>School Bag</h4>
+              <div class="product-category">School bags</div>
+              <div class="product-price">TZS — Contact for price</div>
+              <a href="https://wa.me/255762762668?text=Hello%20WISHES%20BAGS%2C%20I%20am%20interested%20in%20the%20School%20Bag.%20Please%20send%20me%20the%20price%20and%20availability." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Order Now</a>
+            </div>
+          </div>
+
+          <!-- Card 3: Backpack -->
+          <div class="product-card">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&auto=format&fit=crop&q=80" alt="Backpack">
+            </div>
+            <div class="product-info">
+              <h4>Urban Backpack</h4>
+              <div class="product-category">Backpacks</div>
+              <div class="product-price">TZS — Contact for price</div>
+              <a href="https://wa.me/255762762668?text=Hello%20WISHES%20BAGS%2C%20I%20am%20interested%20in%20the%20Urban%20Backpack.%20Please%20send%20me%20the%20price%20and%20availability." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Order Now</a>
+            </div>
+          </div>
+
+          <!-- Card 4: Travel Bag -->
+          <div class="product-card">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1547949003-9792a18a2601?w=400&auto=format&fit=crop" alt="Travel Bag">
+            </div>
+            <div class="product-info">
+              <h4>Travel Duffel</h4>
+              <div class="product-category">Travel bags</div>
+              <div class="product-price">TZS — Contact for price</div>
+              <a href="https://wa.me/255762762668?text=Hello%20WISHES%20BAGS%2C%20I%20am%20interested%20in%20the%20Travel%20Duffel.%20Please%20send%20me%20the%20price%20and%20availability." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Order Now</a>
+            </div>
+          </div>
+
+          <!-- Card 5: Ladies' Bag (tote) -->
+          <div class="product-card">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?w=400&auto=format&fit=crop" alt="Ladies Tote Bag">
+            </div>
+            <div class="product-info">
+              <h4>Ladies' Tote</h4>
+              <div class="product-category">Ladies' bags</div>
+              <div class="product-price">TZS — Contact for price</div>
+              <a href="https://wa.me/255762762668?text=Hello%20WISHES%20BAGS%2C%20I%20am%20interested%20in%20the%20Ladies%27%20Tote.%20Please%20send%20me%20the%20price%20and%20availability." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Order Now</a>
+            </div>
+          </div>
+
+          <!-- Card 6: Custom Bag -->
+          <div class="product-card">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&auto=format&fit=crop" alt="Custom Bag">
+            </div>
+            <div class="product-info">
+              <h4>Custom Bag</h4>
+              <div class="product-category">Custom bags</div>
+              <div class="product-price">TZS — Contact for price</div>
+              <a href="https://wa.me/255762762668?text=Hello%20WISHES%20BAGS%2C%20I%20am%20interested%20in%20a%20Custom%20Bag.%20Please%20send%20me%20the%20price%20and%20availability." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Order Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2>Get in Touch</h2>
+          <p>Ready to order or have a question? We're just a message away.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>WISHES BAGS</h3>
+            <div class="contact-detail">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Mara, Tanzania</span>
+            </div>
+            <div class="contact-detail">
+              <i class="fas fa-phone-alt"></i>
+              <span><a href="tel:+255762762668">+255 762 762 668</a></span>
+            </div>
+            <div class="contact-detail">
+              <i class="fas fa-envelope"></i>
+              <span><a href="mailto:wishes762020@gmail.com">wishes762020@gmail.com</a></span>
+            </div>
+            <div class="contact-actions">
+              <a href="https://wa.me/255762762668?text=Hello%20WISHES%20BAGS%2C%20I%20would%20like%20to%20know%20more%20about%20your%20bags." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+              <a href="tel:+255762762668" class="btn btn-primary"><i class="fas fa-phone"></i> Call Us</a>
+            </div>
+            <div class="contact-map-note">
+              <i class="fas fa-info-circle" style="color: var(--brand);"></i> Exact physical location will be added after confirmation.
+            </div>
+          </div>
+          <div class="contact-image" style="border-radius: var(--radius-md); overflow: hidden; background: #f2e9e4; min-height: 280px; display: flex; align-items: center; justify-content: center;">
+            <!-- Online image: bags display / store -->
+            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&auto=format&fit=crop" alt="WISHES BAGS collection" style="width:100%; height:100%; object-fit: cover; display:block;">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER with M CENTER credit ========== -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">WISHES <span>BAGS</span></div>
+
+      <!-- M Center designed by block with brand colors -->
+      <div class="m-center-credit">
+        <span class="m-white">Designed by</span>
+        <span class="m-blue">M</span><span class="m-yellow"> </span><span class="m-green">Center</span>
+        <span class="m-white" style="margin-left: 6px;">·</span>
+        <a href="https://mcenter.co.tz" target="_blank" rel="noopener">https://mcenter.co.tz</a>
+      </div>
+
+      <div class="footer-copy">
+        &copy; 2025 WISHES BAGS. All rights reserved. &nbsp;|&nbsp; Demo website — product details are placeholders.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== JAVASCRIPT ========== -->
+  <script>
+    (function() {
+      // Mobile navigation toggle
+      const menuToggle = document.getElementById('menuToggle');
+      const navLinks = document.getElementById('navLinks');
+
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', function(e) {
+          e.stopPropagation();
+          navLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked (on mobile)
+        navLinks.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+          });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+          if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
+            navLinks.classList.remove('active');
+          }
+        });
+      }
+
+      // Smooth scroll for anchor links (optional enhancement)
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href === '#') return;
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
